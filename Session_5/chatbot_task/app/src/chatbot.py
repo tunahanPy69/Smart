@@ -176,18 +176,22 @@ class CustomChatBot:
         logger.info("Initialize rag chain.")
 
         # Task: Define prompt
+        
         prompt_template = """
-            You are a helpful assistant. Answer the question using the provided context.
-            If you don't know the answer, say that you don't know.
+        You are a helpful assistant. Answer the question using the provided context.
+        Always answer in the same language as the user's question.
+        If the question is in German, answer in German.
+        If you don't know the answer, say that you don't know.
 
-            Context:
-            {context}
+        Context:
+        {context}
 
-            Question:
-            {question}
+        Question:
+        {question}
 
-            Answer:
-            """
+        Answer:
+        """
+
 
         # Task: Initialize prompt langchain prompt template
         rag_prompt = ChatPromptTemplate.from_template(prompt_template)
