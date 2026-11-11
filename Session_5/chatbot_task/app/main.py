@@ -34,11 +34,11 @@ st.header("Chat with your Document")
 
 # Initialize session state
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [ChatMessage(role="assistant", content="How can I help you?")]
+    st.session_state["messages"] = [ChatMessage(role="assistant", content="Willkommen! Stelle mir Fragen zum KI-Dokument, z. B. Was ist Machine Learning?")]
 
 if len(st.session_state["messages"]) == 0 or st.sidebar.button("Clear message history"):
     st.session_state["messages"].clear()
-    st.session_state["messages"] = [ChatMessage(role="assistant", content="How can I help you?")]
+    st.session_state["messages"] = [ChatMessage(role="assistant", content="Willkommen! Stelle mir Fragen zum KI-Dokument, z. B. Was ist Machine Learning?")]
 
 # Display chat messages
 for msg in st.session_state.messages:
