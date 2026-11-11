@@ -58,6 +58,13 @@ if user_query := st.chat_input(placeholder="Ask me anything!"):
                 if chunk:
                     answer+=chunk
                     container.markdown(answer)
+
+            pages = st.session_state["bot"].get_sources(user_query)
+            
+            if pages:
+                st.write("📄 Gefundene Quellen: AI_Book.pdf")
+                st.write("Seiten: " + ", ".join(str(page) for page in pages))
+
         except Exception as e:
             logger.error(f"Error processing query: {e}")
             container.error("An error occurred while processing your request.")
